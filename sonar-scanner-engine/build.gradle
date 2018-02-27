@@ -60,4 +60,14 @@ test {
   exclude 'org/sonar/scanner/scan/filesystem/InputFileBuilderTest.class'
 }
 
-artifactoryPublish.skip = true
+artifactoryPublish.skip = false
+
+// Used by core plugins
+apply plugin: 'maven-publish'
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+  }
+}

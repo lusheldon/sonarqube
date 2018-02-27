@@ -12,7 +12,7 @@ dependencies {
 
 artifactoryPublish.skip = false
 
-// Used by fake-billing-plugin
+// Used by core plugins
 apply plugin: 'maven-publish'
 publishing {
   publications {

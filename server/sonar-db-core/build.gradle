@@ -45,14 +45,24 @@ test {
     systemProperty 'orchestrator.configUrl', System.getProperty('orchestrator.configUrl')
 }
 
+task testJar(type: Jar) {
+  classifier = 'tests'
+  from sourceSets.test.output
+}
+
+artifacts {
+  archives testJar
+}
+
 artifactoryPublish.skip = false
 
-// Used by fake-governance-plugin
+// Used by core plugins
 apply plugin: 'maven-publish'
 publishing {
   publications {
     mavenJava(MavenPublication) {
       from components.java
+      artifact testJar
     }
   }
 }
