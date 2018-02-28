@@ -10,8 +10,6 @@ import java.io.File;
 public class CreateDB {
 
   public static void main(String[] args) {
-    System.out.println("app is running!");
-
     OrchestratorBuilder builder = Orchestrator.builderEnv();
     String version = System.getProperty("sonar.runtimeVersion");
     if (StringUtils.isEmpty(version)) {
