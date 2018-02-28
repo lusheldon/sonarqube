@@ -31,6 +31,7 @@ dependencies {
   testCompile 'org.postgresql:postgresql'
   testCompile 'com.h2database:h2'
   testCompile 'com.google.code.findbugs:jsr305'
+  testCompile 'org.sonarsource.orchestrator:sonar-orchestrator'
 
   if (System.getProperty('orchestrator.configUrl')) {
     compile 'com.microsoft.sqlserver:mssql-jdbc'
@@ -38,6 +39,12 @@ dependencies {
     compile 'org.postgresql:postgresql'
     compile 'com.oracle.jdbc:ojdbc8'
   }
+}
+
+task createDB(type:JavaExec) {
+  main = 'org.sonar.db.CreateDB'
+  classpath = sourceSets.test.runtimeClasspath
+  systemProperty 'orchestrator.configUrl', System.getProperty('orchestrator.configUrl')
 }
 
 test {
