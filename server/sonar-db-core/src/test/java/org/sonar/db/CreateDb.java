@@ -7,7 +7,7 @@ import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 
-public class CreateDB {
+public class CreateDb {
 
   public static void main(String[] args) {
     OrchestratorBuilder builder = Orchestrator.builderEnv();
