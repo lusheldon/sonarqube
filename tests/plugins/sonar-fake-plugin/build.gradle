@@ -13,6 +13,7 @@ jar {
       'SonarLint-Supported': 'false',
       'Plugin-Name': 'Plugins :: Fake',
       'Plugin-License': 'GNU LGPL 3'
+      'Plugin-Organization': 'SonarSource'
     )
   }
 }
