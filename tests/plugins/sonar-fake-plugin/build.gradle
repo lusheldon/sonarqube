@@ -12,7 +12,7 @@ jar {
       'Sonar-Version': '7.1-SNAPSHOT',
       'SonarLint-Supported': 'false',
       'Plugin-Name': 'Plugins :: Fake',
-      'Plugin-License': 'GNU LGPL 3'
+      'Plugin-License': 'GNU LGPL 3',
       'Plugin-Organization': 'SonarSource'
     )
   }
