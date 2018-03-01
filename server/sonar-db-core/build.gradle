@@ -48,13 +48,13 @@ task createDB(type:JavaExec) {
   if (project.hasProperty('cix')) {
     systemProperty 'sonar.runtimeVersion', version
   }
+  systemProperty 'orchestrator.artifactory.apiKey', System.getProperty('orchestrator.artifactory.apiKey')
+  systemProperty 'orchestrator.artifactory.repositories', System.getProperty('orchestrator.artifactory.repositories')
 }
 
 test {
   if (System.getProperty('orchestrator.configUrl'))
     systemProperty 'orchestrator.configUrl', System.getProperty('orchestrator.configUrl')
-  systemProperty 'orchestrator.artifactory.apiKey', System.getProperty('orchestrator.artifactory.apiKey')
-  systemProperty 'orchestrator.artifactory.repositories', System.getProperty('orchestrator.artifactory.repositories')
 }
 
 task testJar(type: Jar) {
