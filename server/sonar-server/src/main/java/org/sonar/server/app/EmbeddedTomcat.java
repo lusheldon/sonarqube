@@ -61,7 +61,7 @@ class EmbeddedTomcat {
       tomcat.start();
       new TomcatStartupLogs(Loggers.get(getClass())).log(tomcat);
     } catch (LifecycleException e) {
-      e.printStackTrace();
+      Loggers.get(EmbeddedTomcat.class).error("Fail to start web server", e);
       Throwables.propagate(e);
     }
   }
