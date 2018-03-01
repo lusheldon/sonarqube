@@ -5,6 +5,7 @@ ext {
 
 configurations {
   sqZip
+  includeInIntergationTestResources
 }
 
 sourceSets {
@@ -69,7 +70,7 @@ dependencies {
   integrationTestCompile 'org.postgresql:postgresql'
   integrationTestCompile 'com.oracle.jdbc:ojdbc8'
 
-  //includeInTestResources "org.jboss.byteman:byteman:${bytemanVersion}"
+  includeInIntergationTestResources "org.jboss.byteman:byteman:${bytemanVersion}"
 }
 
 sonarqube {
@@ -142,10 +143,10 @@ task integrationTest(type: Test) {
   }
 }
 
-//processTestResources {
-//  into('/') {
-//    from configurations.includeInTestResources
-//    // TODO cache not invalidated when pattern changes?
-//    rename '(.*)-' + bytemanVersion + '.jar', '$1.jar'
-//  }
-//}
+processIntegrationTestResources() {
+  into('/') {
+    from configurations.includeInIntergationTestResources
+    // TODO cache not invalidated when pattern changes?
+    rename '(.*)-' + bytemanVersion + '.jar', '$1.jar'
+  }
+}
